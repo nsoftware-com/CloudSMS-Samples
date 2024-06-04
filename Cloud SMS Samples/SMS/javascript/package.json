@@ -8,7 +8,7 @@
   "main": "sms.js",
   "dependencies": {
     "full-icu": "*",
-    "cloudsms": "^22.0.8858"
+    "cloudsms": "^22.0.8712"
   },
   "scripts": {
     "sms": "node sms.js"
