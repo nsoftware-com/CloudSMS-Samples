@@ -1,5 +1,5 @@
 /*
- * Cloud SMS 2022 Java Edition - Sample Project
+ * Cloud SMS 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of Cloud SMS in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -18,15 +18,15 @@ import java.util.Scanner;
 
 public class sms {
   
-  private static Sms sms;
+  private static SMS sms;
   private static Scanner scanner;
   
   public sms() {
-    sms = new Sms();
+    sms = new SMS();
     scanner = new Scanner(System.in);
     
     try {
-      sms.addSmsEventListener(new SmsEvents());
+      sms.addSMSEventListener(new SMSEvents());
       
       System.out.println("Which SMS service provider would you like to use to send your message?");
       System.out.println("   [0] - Twilio");
@@ -154,11 +154,11 @@ public class sms {
   }
 }
 
-class SmsEvents extends DefaultSmsEventListener {
+class SMSEvents extends DefaultSMSEventListener {
 
   Scanner scn = new Scanner(System.in);
 
-  public void SSLServerAuthentication(SmsSSLServerAuthenticationEvent e) {
+  public void SSLServerAuthentication(SMSSSLServerAuthenticationEvent e) {
       if (e.accept) return;
       System.out.print("Server provided the following certificate:\nIssuer: " + e.certIssuer + "\nSubject: " + e.certSubject + "\n");
       System.out.print("The following problems have been determined for this certificate: " + e.status + "\n");
@@ -188,15 +188,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {
